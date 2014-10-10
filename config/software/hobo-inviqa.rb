@@ -47,5 +47,10 @@ build do
 
   bundle "install", env: env
   appbundle "hobo-inviqa"
-
+  
+  # HACK to inject the hobo paths in to the appbundled binstub
+  block do
+    bin_file = File.read("#{install_dir}/bin/hobo")
+    File.write("#{install_dir}/bin/hobo", bin_file.gsub(/^Kernel/, "ENV['PATH'] = \"#{install_dir}/bin:#{install_dir}/embedded/bin:\#{ENV['PATH']}\"\nKernel"))
+  end
 end
