@@ -1,7 +1,7 @@
-omnibus Omnibus project
+Hobo omnibus project
 =======================
 This project creates full-stack platform-specific packages for
-`omnibus`!
+`hobo`!
 
 Installation
 ------------
