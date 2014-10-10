@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/opscode/omnibus-software.git
-  revision: 7f0070ce20a644eb27a4be1ce78329a71cf2ad67
+  revision: 21606207663af8efb062c4218905a07ee7aa00f0
   specs:
     omnibus-software (4.0.0)
 
@@ -35,10 +35,10 @@ GEM
       buff-ruby_engine (~> 0.1.0)
     celluloid (0.16.0)
       timers (~> 4.0.0)
-    celluloid-io (0.16.0)
+    celluloid-io (0.16.1)
       celluloid (>= 0.16.0)
       nio4r (>= 1.0.0)
-    chef-sugar (2.3.0)
+    chef-sugar (2.3.2)
     cleanroom (1.0.0)
     dep-selector-libgecode (1.0.2)
     dep_selector (1.0.3)
@@ -47,8 +47,8 @@ GEM
     erubis (2.7.0)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
-    ffi (1.9.5)
-    ffi-yajl (1.1.0)
+    ffi (1.9.6)
+    ffi-yajl (1.2.0)
       ffi (~> 1.5)
       libyajl2 (~> 1.0)
     hashie (2.1.2)
@@ -57,7 +57,7 @@ GEM
     json (1.8.1)
     kitchen-vagrant (0.15.0)
       test-kitchen (~> 1.0)
-    libyajl2 (1.0.1)
+    libyajl2 (1.1.0)
     mime-types (1.25.1)
     minitar (0.5.4)
     mixlib-authentication (1.3.0)
@@ -65,7 +65,7 @@ GEM
     mixlib-cli (1.5.0)
     mixlib-config (2.1.0)
     mixlib-log (1.6.0)
-    mixlib-shellout (1.4.0)
+    mixlib-shellout (1.6.0)
     multipart-post (2.0.0)
     net-http-persistent (2.9.4)
     net-scp (1.2.1)
