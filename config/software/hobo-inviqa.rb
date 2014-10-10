@@ -1,7 +1,7 @@
 name "hobo-inviqa"
-default_version "0.0.15"
+default_version "0.0.16-dev"
 
-source :path => File.expand_path('../../../../', __FILE__)
+source :git => "git@github.com:inviqa/hobo-gem"
 
 if windows?
   dependency "ruby-windows"

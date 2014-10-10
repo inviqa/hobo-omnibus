@@ -3,7 +3,7 @@ maintainer "Mike Simons"
 homepage "http://inviqa.com"
 
 install_dir     "#{default_root}/#{name}"
-build_version   "0.0.15"
+build_version   "0.0.16-dev"
 build_iteration 1
 
 
@@ -27,7 +27,6 @@ dependency 'version-manifest'
 exclude "**/.git"
 exclude "**/bundler/git"
 exclude "**/embedded/man"
-exclude "**/cache/**.gem"
 exclude "**/hobo-inviqa/omnibus-installer"
 exclude "**/hobo-inviqa/specs"
 
