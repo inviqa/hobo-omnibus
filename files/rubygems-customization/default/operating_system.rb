@@ -7,6 +7,9 @@
 Gem::ConfigFile::OPERATING_SYSTEM_DEFAULTS["install"] = "--user"
 Gem::ConfigFile::OPERATING_SYSTEM_DEFAULTS["update"] = "--user"
 
+# Force binstub shebangs to embedded ruby
+Gem::ConfigFile::OPERATING_SYSTEM_DEFAULTS["custom_shebang"] = "$ruby"
+
 module Gem
 
   ##
