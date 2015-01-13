@@ -15,6 +15,7 @@
 #
 
 name "hobo-cacerts"
+default_version "0.0.1"
 
 dependency "cacerts"
 

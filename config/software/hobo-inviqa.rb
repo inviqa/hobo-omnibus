@@ -10,7 +10,7 @@ else
   dependency "rubygems"
 end
 
-dependency "hobo-cacerts"
+dependency "cacerts"
 dependency "openssl-customization"
 
 # The devkit has to be installed after openssl-customization so the
@@ -22,6 +22,7 @@ dependency "dep-selector-libgecode"
 dependency "nokogiri"
 dependency "bundler"
 dependency "appbundler"
+dependency "hobo-cacerts"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
@@ -47,7 +48,7 @@ build do
 
   bundle "install", env: env
   appbundle "hobo-inviqa"
-  
+
   # HACK to inject the hobo paths in to the appbundled binstub
   block do
     bin_file = File.read("#{install_dir}/bin/hobo")

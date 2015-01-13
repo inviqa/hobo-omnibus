@@ -38,6 +38,12 @@ for binary in $binaries; do
   ln -sf $INSTALLER_DIR/bin/$binary $PREFIX/bin || error_exit "Cannot link $binary to $PREFIX/bin"
 done
 
+# pre-populate user gems with cached ones from hobo-inviqa
+mkdir -p ~/.hobo/gems/
+cp -R $INSTALLER_DIR/embedded/lib/ruby/gems/* ~/.hobo/gems/ruby/
+USER=$($INSTALLER_DIR/embedded/bin/ruby -r etc -e 'print Etc.getpwuid(File.stat(File.expand_path("~/")).uid).name')
+chown -R $USER ~/.hobo/gems
+
 # Ensure all files/directories in $INSTALLER_DIR are owned by root. This
 # has been fixed on new installs but upgrades from old installs need to
 # be manually fixed.
