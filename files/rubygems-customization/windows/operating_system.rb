@@ -10,10 +10,10 @@ Gem::ConfigFile::OPERATING_SYSTEM_DEFAULTS["update"] = "--user"
 module Gem
 
   ##
-  # Override user_dir to live inside of ~/.hobo
+  # Override user_dir to live inside of ~/.hem
 
   def self.user_dir
-    parts = [Gem.user_home, '.hobo', 'gems', ruby_engine]
+    parts = [Gem.user_home, '.hem', 'gems', ruby_engine]
     parts << RbConfig::CONFIG['ruby_version'] unless RbConfig::CONFIG['ruby_version'].empty?
     File.join parts
   end
@@ -23,11 +23,11 @@ end
 # :DK-BEG: override 'gem install' to enable RubyInstaller DevKit usage
 Gem.pre_install do |gem_installer|
   unless gem_installer.spec.extensions.empty?
-    unless ENV['PATH'].include?('C:\\hobo-inviqa\\embedded\\mingw\\bin') then
+    unless ENV['PATH'].include?('C:\\hem\\embedded\\mingw\\bin') then
       Gem.ui.say 'Temporarily enhancing PATH to include DevKit...' if Gem.configuration.verbose
-      ENV['PATH'] = 'C:\\hobo-inviqa\\embedded\\bin;C:\\hobo-inviqa\\embedded\\mingw\\bin;' + ENV['PATH']
+      ENV['PATH'] = 'C:\\hem\\embedded\\bin;C:\\hem\\embedded\\mingw\\bin;' + ENV['PATH']
     end
-    ENV['RI_DEVKIT'] = 'C:\\hobo-inviqa\\embedded'
+    ENV['RI_DEVKIT'] = 'C:\\hem\\embedded'
     ENV['CC'] = 'gcc'
     ENV['CXX'] = 'g++'
     ENV['CPP'] = 'cpp'

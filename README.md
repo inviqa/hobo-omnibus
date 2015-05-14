@@ -1,7 +1,7 @@
-Hobo omnibus project
+Hem omnibus project
 =======================
 This project creates full-stack platform-specific packages for
-`hobo`!
+`hem`!
 
 Installation
 ------------

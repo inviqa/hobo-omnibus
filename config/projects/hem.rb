@@ -1,13 +1,12 @@
-name "hobo-inviqa"
+name "hem"
 maintainer "Mike Simons"
 homepage "http://inviqa.com"
 
 install_dir     "#{default_root}/#{name}"
-build_version   "0.0.16-dev"
+build_version   "1.0.0-dev"
 build_iteration 1
 
-
-override :nokogiri,       version: "1.6.3.1"
+override :nokogiri, version: "1.6.3.1"
 override :ruby,           version: "2.1.2"
 override :'ruby-windows', version: "2.0.0-p451"
 override :rubygems,       version: "2.4.1"
@@ -16,9 +15,9 @@ override :rubygems,       version: "2.4.1"
 dependency 'preparation'
 
 # omnibus dependencies/components
-dependency "hobo-inviqa"
+dependency "hem"
 
-# we make this happen after the fact so the gem installs in hobo-inviqa don't get messed up
+# we make this happen after the fact so the gem installs in hem don't get messed up
 dependency "rubygems-customization"
 
 # version manifest file
@@ -27,11 +26,11 @@ dependency 'version-manifest'
 exclude "**/.git"
 exclude "**/bundler/git"
 exclude "**/embedded/man"
-exclude "**/hobo-inviqa/omnibus-installer"
-exclude "**/hobo-inviqa/specs"
+exclude "**/hem/omnibus-installer"
+exclude "**/hem/specs"
 
 package :pkg do
-  identifier "com.inviqa.pkg.hobo"
+  identifier "com.inviqa.pkg.hem"
 end
 
 package :msi do

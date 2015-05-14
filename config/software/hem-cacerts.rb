@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-name "hobo-cacerts"
+name "hem-cacerts"
 default_version "0.0.1"
 
 dependency "cacerts"

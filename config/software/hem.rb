@@ -1,7 +1,7 @@
-name "hobo-inviqa"
-default_version "0.0.16-dev"
+name "hem"
+default_version "hem-rename"
 
-source :git => "git@github.com:inviqa/hobo-gem"
+source :git => "git@github.com:inviqa/hem-gem"
 
 if windows?
   dependency "ruby-windows"
@@ -22,7 +22,7 @@ dependency "dep-selector-libgecode"
 dependency "nokogiri"
 dependency "bundler"
 dependency "appbundler"
-dependency "hobo-cacerts"
+dependency "hem-cacerts"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
@@ -47,11 +47,17 @@ build do
   end
 
   bundle "install", env: env
-  appbundle "hobo-inviqa"
+  appbundle "hem"
 
-  # HACK to inject the hobo paths in to the appbundled binstub
+  # HACK to inject the hem paths in to the appbundled binstub
   block do
-    bin_file = File.read("#{install_dir}/bin/hobo")
-    File.write("#{install_dir}/bin/hobo", bin_file.gsub(/^Kernel/, "ENV['PATH'] = \"#{install_dir}/bin:#{install_dir}/embedded/bin:\#{ENV['PATH']}\"\nKernel"))
+    bin_file = File.read("#{install_dir}/bin/hem")
+    path = [
+      '#{File.expand_path("~/.hem/gems/ruby/#{RbConfig::CONFIG[\'ruby_version\']}/bin")}',
+      "#{install_dir}/bin",
+      "#{install_dir}/embedded/bin",
+      '#{ENV[\'PATH\']}'
+    ].join(':')
+    File.write("#{install_dir}/bin/hem", bin_file.gsub(/^Kernel/, "ENV['PATH'] = \"#{path}\"\nKernel"))
   end
 end

@@ -13,10 +13,10 @@ Gem::ConfigFile::OPERATING_SYSTEM_DEFAULTS["custom_shebang"] = "$ruby"
 module Gem
 
   ##
-  # Override user_dir to live inside of ~/.hobo
+  # Override user_dir to live inside of ~/.hem
 
   def self.user_dir
-    parts = [Gem.user_home, '.hobo', 'gems', ruby_engine]
+    parts = [Gem.user_home, '.hem', 'gems', ruby_engine]
     parts << RbConfig::CONFIG['ruby_version'] unless RbConfig::CONFIG['ruby_version'].empty?
     File.join parts
   end
