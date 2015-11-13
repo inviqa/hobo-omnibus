@@ -6,10 +6,14 @@ install_dir     "#{default_root}/#{name}"
 build_version   "1.0.0-dev"
 build_iteration 1
 
+# workaround for https://github.com/chef/omnibus-software/pull/473
+override :ncurses, version: '5.9'
+  
 override :nokogiri, version: "1.6.3.1"
-override :ruby,           version: "2.1.2"
-override :'ruby-windows', version: "2.0.0-p451"
-override :rubygems,       version: "2.4.1"
+override :ruby,           version: "2.2.3"
+override :'ruby-windows', version: "2.2.1"
+override :'ruby-windows-devkit', version: "4.7.2-20130224"
+override :rubygems,       version: "2.4.8"
 
 # creates required build directories
 dependency 'preparation'

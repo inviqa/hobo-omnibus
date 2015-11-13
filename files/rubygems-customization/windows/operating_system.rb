@@ -13,7 +13,21 @@ module Gem
   # Override user_dir to live inside of ~/.hem
 
   def self.user_dir
-    parts = [Gem.user_home, '.hem', 'gems', ruby_engine]
+    hem_home_set = !([nil, ''].include? ENV['HEM_HOME'])
+    # We call expand_path here because it converts \ -> /
+    # Rubygems seems to require that we not use \
+    default_home = File.join(File.expand_path(ENV['LOCALAPPDATA']), 'hem')
+
+    hem_home = if hem_home_set
+      ENV['HEM_HOME']
+    else
+      default_home
+    end
+
+    # Prevents multiple warnings
+    ENV['HEM_HOME'] = hem_home
+
+    parts = [hem_home, 'gems', ruby_engine]
     parts << RbConfig::CONFIG['ruby_version'] unless RbConfig::CONFIG['ruby_version'].empty?
     File.join parts
   end
