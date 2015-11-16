@@ -3,35 +3,56 @@
 # from the stuff we bundle with omnibus and any other ruby installations on the
 # system.
 
-# Always install and update new gems in "user install mode"
-Gem::ConfigFile::OPERATING_SYSTEM_DEFAULTS["install"] = "--user"
-Gem::ConfigFile::OPERATING_SYSTEM_DEFAULTS["update"] = "--user"
-
 module Gem
 
   ##
   # Override user_dir to live inside of ~/.hem
 
-  def self.user_dir
-    hem_home_set = !([nil, ''].include? ENV['HEM_HOME'])
-    # We call expand_path here because it converts \ -> /
-    # Rubygems seems to require that we not use \
-    default_home = File.join(File.expand_path(ENV['LOCALAPPDATA']), 'hem')
+  class << self
+    # Remove method before redefining so we avoid a ruby warning
+    remove_method :user_dir
 
-    hem_home = if hem_home_set
-      ENV['HEM_HOME']
-    else
-      default_home
+    def user_dir
+      hem_home_set = !([nil, ''].include? ENV['HEM_HOME'])
+      # We call expand_path here because it converts \ -> /
+      # Rubygems seems to require that we not use \
+      default_home = File.join(File.expand_path(ENV['LOCALAPPDATA']), 'hem')
+
+      hem_home = if hem_home_set
+        ENV['HEM_HOME']
+      else
+        default_home
+      end
+
+      # Prevents multiple warnings
+      ENV['HEM_HOME'] = hem_home
+
+      parts = [hem_home, 'gems', ruby_engine]
+      parts << RbConfig::CONFIG['ruby_version'] unless RbConfig::CONFIG['ruby_version'].empty?
+      File.join parts
     end
-
-    # Prevents multiple warnings
-    ENV['HEM_HOME'] = hem_home
-
-    parts = [hem_home, 'gems', ruby_engine]
-    parts << RbConfig::CONFIG['ruby_version'] unless RbConfig::CONFIG['ruby_version'].empty?
-    File.join parts
   end
 
+  class PathSupport
+    def initialize(env=ENV)
+      @env = env
+
+      # note 'env' vs 'ENV'...
+      @home     = env["GEM_HOME"] || ENV["GEM_HOME"] || Gem.user_dir
+
+      if File::ALT_SEPARATOR then
+        @home   = @home.gsub(File::ALT_SEPARATOR, File::SEPARATOR)
+      end
+
+      self.path = env["GEM_PATH"] || ENV["GEM_PATH"]
+
+      @spec_cache_dir =
+        env["GEM_SPEC_CACHE"] || ENV["GEM_SPEC_CACHE"] ||
+          Gem.default_spec_cache_dir
+
+      @spec_cache_dir = @spec_cache_dir.dup.untaint
+    end
+  end
 end
 
 # :DK-BEG: override 'gem install' to enable RubyInstaller DevKit usage
