@@ -19,7 +19,7 @@ Usage
 You create a platform-specific package using the `build project` command:
 
 ```shell
-$ bin/omnibus build omnibus
+$ bin/omnibus build hem
 ```
 
 The platform/architecture type of the package created will match the platform
@@ -33,7 +33,7 @@ You can clean up all temporary files generated during the build process with
 the `clean` command:
 
 ```shell
-$ bin/omnibus clean omnibus
+$ bin/omnibus clean hem
 ```
 
 Adding the `--purge` purge option removes __ALL__ files generated during the
@@ -41,7 +41,7 @@ build including the project install directory (`/opt/omnibus`) and
 the package cache directory (`/var/cache/omnibus/pkg`):
 
 ```shell
-$ bin/omnibus clean omnibus --purge
+$ bin/omnibus clean hem --purge
 ```
 
 ### Publish
