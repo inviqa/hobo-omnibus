@@ -24,6 +24,8 @@ dependency "hem"
 # we make this happen after the fact so the gem installs in hem don't get messed up
 dependency "rubygems-customization"
 
+dependency "executable-hooks-patched"
+
 # version manifest file
 dependency 'version-manifest'
 
