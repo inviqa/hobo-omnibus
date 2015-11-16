@@ -26,6 +26,7 @@ dependency "hem-cacerts"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
+  env['HEM_BUILD'] = '1'
 
   if windows?
     # Normally we would symlink the required unix tools.
@@ -47,6 +48,10 @@ build do
   end
 
   bundle "install", env: env
+  gem "build hem.gemspec", env: env
+  gem "install hem*.gem" \
+      " --no-ri --no-rdoc" \
+      " --verbose", env: env
   appbundle "hem"
 
   # HACK to inject the hem paths in to the appbundled binstub
