@@ -43,6 +43,7 @@ windows_arch   %w{x86 x64}.include?((ENV['OMNIBUS_WINDOWS_ARCH'] || '').downcase
 build_retries 3
 fetcher_retries 3
 fetcher_read_timeout 120
+append_timestamp false
 
 # We limit this to 10 workers to eliminate transient timing issues in the
 # way Ruby (and other components) compiles on some more esoteric *nixes.

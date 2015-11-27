@@ -37,7 +37,7 @@ $ bin/omnibus clean hem
 ```
 
 Adding the `--purge` purge option removes __ALL__ files generated during the
-build including the project install directory (`/opt/omnibus`) and
+build including the project install directory (`/opt/hem`) and
 the package cache directory (`/var/cache/omnibus/pkg`):
 
 ```shell

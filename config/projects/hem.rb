@@ -1,10 +1,10 @@
 name "hem"
-maintainer "Mike Simons"
-homepage "http://inviqa.com"
+maintainer "Andy Thompson"
+homepage "https://github.com/inviqa/hem"
 
 install_dir     "#{default_root}/#{name}"
-build_version   "1.0.0-dev"
-build_iteration 1
+build_version   "1.0.0"
+build_iteration "0.1.dev"
 
 # workaround for https://github.com/chef/omnibus-software/pull/473
 override :ncurses, version: '5.9'
