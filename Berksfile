@@ -4,6 +4,7 @@ source 'https://api.berkshelf.com'
 # systems, since the cache can become stale on older boxes.
 cookbook 'apt', '~> 2.0'
 
+cookbook 'hem-build', path: 'site-cookbooks/hem-build'
 cookbook 'omnibus'
 
 # Uncomment to use the latest version of the Omnibus cookbook from GitHub

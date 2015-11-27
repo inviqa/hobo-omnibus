@@ -1,29 +1,36 @@
 driver:
   name: vagrant
+  forward_agent: true
   customize:
     cpus: 2
     memory: 2048
+  network:
+    - ['private_network', {ip: '10.10.33.33', netmask: '255.255.0.0'}]
+
   synced_folders:
-    - ['.', '/home/vagrant/omnibus']
+    - ['.', '/home/vagrant/hem', 'create: true, type: :nfs']
+    - ['~/.gnupg', '/home/vagrant/.gnupg']
+  vagrantfiles:
+    - Vagrantfile.forward_agent.rb
 
 provisioner:
-  require_chef_omnibus: 11.8.0
+  require_chef_omnibus: 12
 
 platforms:
-  - name: ubuntu-12.04
-    run_list: apt::default
-  - name: ubuntu-11.04
-    run_list: apt::default
-  - name: ubuntu-10.04
-    run_list: apt::default
-  - name: centos-5.10
-  - name: centos-6.5
+  - name: bento/ubuntu-14.04
+  - name: bento/centos-6.7
+  - name: bento/debian-6.0.10
 
 suites:
   - name: default
-    run_list: omnibus::default
+    run_list:
+      - omnibus::default
+      - hem-build::default
     attributes:
+      hem-build:
+        gpg_userdir: /home/vagrant
+        gpg_name: B8D64BCB
       omnibus:
         build_user:  vagrant
-        build_dir:   /home/vagrant/omnibus
-        install_dir: /opt/omnibus
+        build_dir:   /home/vagrant/hem
+        install_dir: /opt/hem

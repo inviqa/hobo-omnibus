@@ -17,9 +17,9 @@
 #
 # Alternatively you can tune the individual values
 # ------------------------------------------------
-# cache_dir     './local/omnibus/cache'
-# git_cache_dir './local/omnibus/cache/git_cache'
-# source_dir    './local/omnibus/src'
+cache_dir     File.dirname(__FILE__) + '/local/omnibus/cache'
+git_cache_dir File.dirname(__FILE__) + '/local/omnibus/cache/git_cache'
+source_dir    File.dirname(__FILE__) + '/local/omnibus/src'
 # build_dir     './local/omnibus/build'
 # package_dir   './local/omnibus/pkg'
 # package_tmp   './local/omnibus/pkg-tmp'

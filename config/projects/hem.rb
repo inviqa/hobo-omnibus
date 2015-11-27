@@ -35,6 +35,14 @@ exclude "**/embedded/man"
 exclude "**/hem/omnibus-installer"
 exclude "**/hem/specs"
 
+package :deb do
+  license 'MIT'
+end
+
+package :rpm do
+  license 'MIT'
+end
+
 package :pkg do
   identifier "com.inviqa.pkg.hem"
 end
