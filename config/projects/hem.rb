@@ -4,7 +4,7 @@ homepage "https://github.com/inviqa/hem"
 
 install_dir     "#{default_root}/#{name}"
 build_version   "1.0.1"
-build_iteration "0.1.beta1"
+build_iteration "0.2.beta2"
 
 # workaround for https://github.com/chef/omnibus-software/pull/473
 override :ncurses, version: '5.9'
