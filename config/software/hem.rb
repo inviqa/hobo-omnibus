@@ -84,6 +84,19 @@ build do
       "#{install_dir}/embedded/bin",
       '#{ENV[\'PATH\']}'
     ].join(':')
-    File.write("#{install_dir}/bin/hem", bin_file.gsub(/^Kernel/, "ENV['PATH'] = \"#{path}\"\nKernel"))
+
+    bundler_unhook = <<-eos.strip
+if defined?(Bundler)
+  Bundler.with_clean_env do
+    exec [$PROGRAM_NAME,$PROGRAM_NAME], *ARGV
+  end
+end
+
+ENV
+eos
+    bin_file.sub!(/^ENV/, bundler_unhook)
+
+    bin_file.sub!(/^Kernel/, "ENV['PATH'] = \"#{path}\"\nKernel")
+    File.write("#{install_dir}/bin/hem", bin_file)
   end
 end
