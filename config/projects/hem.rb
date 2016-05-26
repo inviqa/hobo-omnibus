@@ -10,7 +10,7 @@ build_iteration "0.6.beta6"
 override :ncurses, version: '5.9'
   
 override :nokogiri, version: "1.6.3.1"
-override :ruby,           version: "2.2.3"
+override :ruby,           version: "2.2.5"
 override :'ruby-windows', version: "2.2.1"
 override :'ruby-windows-devkit', version: "4.7.2-20130224"
 override :rubygems,       version: "2.4.8"
