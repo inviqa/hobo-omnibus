@@ -40,6 +40,7 @@ dependency "ruby-windows-devkit" if windows?
 
 # Pre-compile lib dependencies
 dependency "dep-selector-libgecode"
+dependency "dep-selector-libgecode-10" unless windows?
 dependency "nokogiri"
 dependency "bundler"
 dependency "appbundler"
