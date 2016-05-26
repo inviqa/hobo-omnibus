@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'berkshelf', '~> 4.0'
 
 # Install omnibus software
-gem 'omnibus', '~> 5.0.0'
+gem 'omnibus', '~> 5.0'
 gem 'ohai'
 gem 'appbundler', '~> 0.6.0'
 
