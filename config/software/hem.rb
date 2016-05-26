@@ -22,7 +22,7 @@
 name "hem"
 default_version "master"
 
-source :git => "git@github.com:inviqa/hem"
+source :git => "https://github.com/inviqa/hem"
 
 if windows?
   dependency "ruby-windows"
