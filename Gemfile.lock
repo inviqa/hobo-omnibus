@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/opscode/omnibus-software.git
-  revision: 417a399b0d578f4ac8a38fb54a0876abce6fa04e
+  revision: 6da6e05835b6eaea861dc042a2dc4dc47c469df0
   specs:
     omnibus-software (4.0.0)
       omnibus (>= 5.2.0)
@@ -12,12 +12,12 @@ GEM
     appbundler (0.6.0)
       mixlib-cli (~> 1.4)
     artifactory (2.3.2)
-    aws-sdk (2.3.7)
-      aws-sdk-resources (= 2.3.7)
-    aws-sdk-core (2.3.7)
+    aws-sdk (2.3.13)
+      aws-sdk-resources (= 2.3.13)
+    aws-sdk-core (2.3.13)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.3.7)
-      aws-sdk-core (= 2.3.7)
+    aws-sdk-resources (2.3.13)
+      aws-sdk-core (= 2.3.13)
     berkshelf (4.3.3)
       addressable (~> 2.3, >= 2.3.4)
       berkshelf-api-client (~> 2.0, >= 2.0.2)
@@ -52,7 +52,7 @@ GEM
     celluloid-io (0.16.2)
       celluloid (>= 0.16.0)
       nio4r (>= 1.1.0)
-    chef-config (12.10.24)
+    chef-config (12.11.18)
       fuzzyurl (~> 0.8.0)
       mixlib-config (~> 2.0)
       mixlib-shellout (~> 2.0)
