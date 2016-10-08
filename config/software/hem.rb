@@ -93,6 +93,8 @@ if defined?(Bundler)
   end
 end
 
+ENV['HEM_OMNIBUS'] = '1'
+
 ENV
 eos
     bin_file.sub!(/^ENV/, bundler_unhook)
