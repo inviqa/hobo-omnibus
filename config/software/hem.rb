@@ -31,6 +31,8 @@ else
   dependency "rubygems"
 end
 
+dependency "rb-readline"
+
 dependency "cacerts"
 dependency "openssl-customization"
 
