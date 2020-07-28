@@ -72,7 +72,7 @@ GEM
     ipaddress (0.8.3)
     jmespath (1.2.4)
       json_pure (>= 1.8.1)
-    json (1.8.3)
+    json (2.3.1)
     json_pure (1.8.3)
     kitchen-vagrant (0.20.0)
       test-kitchen (~> 1.4)
